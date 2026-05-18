@@ -1,0 +1,27 @@
+# Build
+target/
+build/
+out/
+*.class
+*.jar
+!**/lib/*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.eclipse/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Maven
+dependency-reduced-pom.xml
