@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" modified="2026-05-19T06:30:00.000Z" agent="Method Profiler" version="21.0.0">
+  <diagram name="Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- JVM Process Container -->
+        <mxCell id="2" value="JVM Process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="700" height="350" as="geometry" />
+        </mxCell>
+
+        <!-- Your Application -->
+        <mxCell id="3" value="&lt;b&gt;Your Application&lt;/b&gt;&lt;br&gt;&lt;br&gt;@Profile methods&lt;br&gt;Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="200" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Profiler Agent -->
+        <mxCell id="4" value="&lt;b&gt;Profiler Agent&lt;/b&gt;&lt;br&gt;(ByteBuddy)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="380" y="80" width="320" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- TimingAdvice -->
+        <mxCell id="5" value="⏱️ TimingAdvice&lt;br&gt;(enter/exit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="120" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- MemoryAdvice -->
+        <mxCell id="6" value="💾 MemoryAdvice&lt;br&gt;(allocation tracking)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- MetricsCollector -->
+        <mxCell id="7" value="📊 MetricsCollector&lt;br&gt;(Singleton, Thread-safe)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="200" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- MethodMetric -->
+        <mxCell id="8" value="📈 MethodMetric&lt;br&gt;(AtomicLong counters)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- HTTP Server -->
+        <mxCell id="9" value="🌐 HTTP Server&lt;br&gt;(port 9999)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="230" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Dashboard -->
+        <mxCell id="10" value="&lt;b&gt;🖥️ Web Dashboard&lt;/b&gt;&lt;br&gt;Spring Boot&lt;br&gt;http://localhost:8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="460" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Browser -->
+        <mxCell id="11" value="&lt;b&gt;🧑‍💻 Developer&lt;/b&gt;&lt;br&gt;Browser / curl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#999999;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="460" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="20" value="bytecode inject" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="21" value="record()" style="edgeStyle=orthogonalEdgeStyle;rounded=1;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="22" value="store" style="edgeStyle=orthogonalEdgeStyle;rounded=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="23" value="GET /metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=1;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="24" value="view" style="edgeStyle=orthogonalEdgeStyle;rounded=1;" edge="1" parent="1" source="11" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

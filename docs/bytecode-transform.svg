@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 480" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="750" height="480" fill="#f8fafc" rx="12"/>
+
+  <!-- Title -->
+  <text x="375" y="35" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">How ByteBuddy Transforms Your Code</text>
+
+  <!-- BEFORE Box -->
+  <rect x="40" y="55" width="670" height="140" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="40" y="55" width="670" height="30" rx="10" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+  <rect x="40" y="73" width="670" height="12" fill="#fee2e2"/>
+  <text x="375" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#991b1b">BEFORE — Original Method</text>
+
+  <!-- Code before -->
+  <text x="70" y="110" font-size="12" fill="#64748b" font-family="Consolas, monospace">
+    <tspan x="70" dy="0" fill="#7c3aed">public void</tspan><tspan fill="#1e293b"> getUserById(</tspan><tspan fill="#7c3aed">int</tspan><tspan fill="#1e293b"> id) {</tspan>
+    <tspan x="90" dy="22" fill="#64748b">// your business logic</tspan>
+    <tspan x="90" dy="22" fill="#1e293b">Thread.sleep(50);</tspan>
+    <tspan x="70" dy="22" fill="#1e293b">}</tspan>
+  </text>
+
+  <!-- Arrow down -->
+  <polygon points="375,205 360,215 365,215 365,240 385,240 385,215 390,215" fill="#6366f1"/>
+  <text x="375" y="260" text-anchor="middle" font-size="11" font-weight="bold" fill="#6366f1">🧬 ByteBuddy Agent Transform</text>
+
+  <!-- AFTER Box -->
+  <rect x="40" y="275" width="670" height="190" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="40" y="275" width="670" height="30" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <rect x="40" y="293" width="670" height="12" fill="#dcfce7"/>
+  <text x="375" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">AFTER — Instrumented Method</text>
+
+  <!-- Code after -->
+  <text font-size="12" font-family="Consolas, monospace">
+    <tspan x="70" y="325" fill="#7c3aed">public void</tspan><tspan fill="#1e293b"> getUserById(</tspan><tspan fill="#7c3aed">int</tspan><tspan fill="#1e293b"> id) {</tspan>
+    <tspan x="90" dy="20" fill="#dc2626" font-weight="bold">long startTime = System.nanoTime();</tspan><tspan fill="#64748b" font-size="10">  ← injected</tspan>
+    <tspan x="90" dy="20" fill="#1e293b">try {</tspan>
+    <tspan x="110" dy="20" fill="#64748b">// your business logic</tspan>
+    <tspan x="110" dy="20" fill="#1e293b">Thread.sleep(50);</tspan>
+    <tspan x="90" dy="20" fill="#1e293b">} finally {</tspan>
+    <tspan x="110" dy="20" fill="#dc2626" font-weight="bold">long duration = System.nanoTime() - startTime;</tspan><tspan fill="#64748b" font-size="10">  ← injected</tspan>
+    <tspan x="110" dy="20" fill="#dc2626" font-weight="bold">MetricsCollector.record(...);</tspan><tspan fill="#64748b" font-size="10">  ← injected</tspan>
+    <tspan x="90" dy="20" fill="#1e293b">}</tspan>
+    <tspan x="70" dy="20" fill="#1e293b">}</tspan>
+  </text>
+</svg>
+
