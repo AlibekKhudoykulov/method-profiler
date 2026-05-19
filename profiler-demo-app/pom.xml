@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.profiler</groupId>
+        <artifactId>method-profiler-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>profiler-demo-app</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.profiler</groupId>
+            <artifactId>profiler-agent</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.demo.DemoApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
