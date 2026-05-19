@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+profiler:
+  agent:
+    url: http://localhost:9999
+
+spring:
+  application:
+    name: profiler-dashboard
